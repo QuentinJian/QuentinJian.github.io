@@ -1,39 +1,39 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <meta charset="utf-8">
-    <title>Flex Wrap</title>
-    <style>
-        #container {
-            width: 500px; height: 300px; border: 3px solid blue;
-            display: flex;
-            flex-direction: row;
-            flex-wrap: wrap;
-        }
-        #item1 {
-            width: 200px; background-color: yellow;
-        }
-        #item2 {
-            width: 200px; background-color: pink;
-        }
-        #item3 {
-            width: 80px; background-color: aqua;
-        }
-        #item4 {
-            width: 250px; background-color: lightgreen;
-        }
-        #item5 {
-            width: 100px; background-color: lightblue;
-        }
-    </style>
+  <title>Bootstrap Example</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 </head>
 <body>
-<div id="container">
-    <div id="item1">flex item1</div>
-    <div id="item2">flex item2</div>
-    <div id="item3">flex item3</div>
-    <div id="item4">flex item4</div>
-    <div id="item5">flex item5</div>
+
+<div class="jumbotron text-center">
+  <h1>My First Bootstrap Page</h1>
+  <p>Resize this responsive page to see the effect!</p> 
 </div>
+  
+<div class="container">
+  <div class="row">
+    <div class="col-sm-4">
+      <h3>Column 1</h3>
+      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit...</p>
+      <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris...</p>
+    </div>
+    <div class="col-sm-4">
+      <h3>Column 2</h3>
+      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit...</p>
+      <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris...</p>
+    </div>
+    <div class="col-sm-4">
+      <h3>Column 3</h3>        
+      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit...</p>
+      <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris...</p>
+    </div>
+  </div>
+</div>
+
 </body>
 </html>
