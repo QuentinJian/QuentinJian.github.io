@@ -1,0 +1,31 @@
+p {
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+.top-header {
+    border-bottom: solid #002147;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+
+}
+
+.main-nav {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    font: 1.2em 'Trebuchet MS';
+  
+    display: flex;
+  }
+  
+.main-nav a {
+    padding: 0.5em 1em;
+    display: block;
+}
+  
+.push {
+    margin-left: auto;
+}
+
+.article-title {
+    padding-top: 12pt;
+}
