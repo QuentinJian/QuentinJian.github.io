@@ -2,24 +2,71 @@ p {
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
 }
 
+body {
+    margin-left: 10%;
+    margin-right: 10%;
+    min-height: 100vh;
+    margin: 0;
+    display: grid;
+    grid-template-rows: auto 1fr auto;
+}
+
+main {
+    /* border: solid; */
+    padding-left: 10%;
+    padding-right: 10%;
+    /* margin-top: 4%; */
+    grid-area: content;
+    grid-column: 3;
+    grid-row-start: 1;
+}
+
+header {
+    position: sticky;
+}
+
+footer {
+    background-color: darkgrey;
+}
+
+aside {
+    padding-left: minmax(0em, 12em);
+    grid-column-start: 2;
+}
+
+.has-dropcap::first-letter {
+    float: left;
+    font-size: 4rem;
+    line-height: 0.65;
+    margin: 0em 0.1em 0.1em 0;
+}
+
 .top-header {
-    border-bottom: solid #002147;
+    /* border-bottom: solid #002147; */
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 
 }
 
+.main-container {
+    display: grid;
+    grid-template-columns:1fr 1fr 8fr;
+}
+
 .main-nav {
-    margin: 0;
+    margin: 0 auto;
+    max-width: 100%;
     padding: 0;
     list-style: none;
     font: 1.2em 'Trebuchet MS';
-  
+    border-top:  solid;
+    border-bottom: solid;
     display: flex;
-  }
+}
   
 .main-nav a {
     padding: 0.5em 1em;
     display: block;
+    color: black;
 }
   
 .push {
@@ -28,4 +75,26 @@ p {
 
 .article-title {
     padding-top: 12pt;
+}
+
+a {
+    color: black;
+}
+
+a:visited {
+    color:black
+}   
+
+a:hover {
+    text-decoration: none;
+    color: #0557d0;
+}
+
+a:active {
+    background:cornflowerblue;
+    color: #3417a6;
+}
+
+a > h2 {
+    color: black;
 }
