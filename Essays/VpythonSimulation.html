@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8"/>
+        <title>QuentinJian: MainPage</title>
+        <link rel="stylesheet" href="../res/styles/style.css"/>
+
+        <!-- set up code block -->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/styles/default.min.css">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/highlight.min.js"></script>
+
+        <!-- and it's easy to individually load additional languages -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/languages/go.min.js"></script>
+
+        <script>hljs.highlightAll();</script>
+  </head>
+
+  <body>
+    <header>
+      <h1 class="top-header"><a href="../index.html">Quentin Jian</a></h1>
+      <nav>
+        <ul class="main-nav">
+          <li>
+            <a class="nav1" href="../about.html">About</a>
+          </li>
+          <li>
+            <a class="nav1" href="../article_list.html">Articles</a>
+          </li>
+          <li>
+            <a class="nav1" href="../other.html">Other</a>
+          </li>
+          <li class="push">
+            <a class="nav1" href="../contacts.html">Contacts</a>
+          </li>
+        </ul>
+      </nav>
+    </header>
+    <div class="main-container">
+      <main>
+        <article>
+            <h1 class="article-title">VPython Simulation RK4</h1>
+            <p>
+              在高中物理課時我曾學過基本的 vpython 做物理模擬，而之後便再也沒碰過。一直到普通物理課時老師在講解作業提到了用 runge kutta4 integrator 畫 phase diagram
+              可以加分，因此寫了這個 vpython 程式。
+            </p>
+            <h2>4th Order Runge Kutta</h2>
+            <p>Runge Kutta Method 是一個解非線性常微分方程近似的一系列方法，這些方法中以 4th order runge kutta (RK4)最常被使用，
+              因為利用RK4 我們可以用電腦算出許多難以計算的微分方程的近似解，也因此可以被用來做物理模擬。
+            </p>
+            <p>
+              解微分方程就可以模擬物理是因為描述物理行為的數學式通常以微分式表示，像是
+            </p>
+            <code>F = ma</code>
+            <p>可以寫成 <code>F = m(dv/dt) => dv = dt * F/m</code></p>
+            <p>而 <code>v = dx/dt</code></p>
+            <p>只要知道當下的受力與速度，就可以知道下一個瞬間的速度，知道當下的速度，就可以知道下一個瞬間的位置</p>
+            <p>利用這個想法，我們可以寫出一個十分直觀的程式</p>
+            <pre>
+            <code class="python">
+              x = 0
+              t = 0
+              dt = 0.001
+              v = 1 #(m/s)
+              F = 10 #(N)
+              m = 1 #(kg)
+              while (t < 10):
+                x = x + v * dt
+                v = v + (F/m) * dt
+            </code>
+            </pre>
+            <p>來簡單估算 10 秒後物體的位置、速度等參數，而上面的這個簡單方法稱為歐拉法(Euler method)，當我們給的dt值越小，計算的結果也就越精確</p>
+            <iframe src="../res/Other/CoupledOscillator.html" width="800" height="1150"></iframe>
+            <h2>為何歐拉法不夠好</h2>
+            <p>利用歐拉法，大部分基本的物理模擬都能十分貼近現實的表現，過程產生的誤差相對十分渺小，但當我們遇到要模擬</p>
+        </article>
+      </main>
+    </div>
+    <footer>
+      <p>Email: will add later. <a class="report-link" href="https://github.com/QuentinJian/QuentinJian.github.io/issues">Report Problem</a></p>
+    </footer>
+  </body>
+</html>

@@ -140,3 +140,24 @@ section {
 .top-header a {
     text-decoration: none;
 }
+
+img.click-icon {
+    vertical-align: middle;
+}
+
+.article-list {
+    font-size: large;
+}
+
+iframe {
+  -moz-transform: scale(0.75, 0.75); 
+  -webkit-transform: scale(0.75, 0.75); 
+  -o-transform: scale(0.75, 0.75);
+  -ms-transform: scale(0.75, 0.75);
+  transform: scale(0.75, 0.75); 
+  -moz-transform-origin: top left;
+  -webkit-transform-origin: top left;
+  -o-transform-origin: top left;
+  -ms-transform-origin: top left;
+  transform-origin: top left;
+}
