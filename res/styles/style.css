@@ -162,6 +162,14 @@ iframe {
   transform-origin: top left;
 }
 
+.checked-li {
+  list-style: url("../Other/checkbox-checked-svgrepo-com.svg");
+}
+
+.unchecked-li {
+  list-style: url("../Other/checkbox-unchecked-svgrepo-com.svg");
+}
+
 /* Can view on phone */
 @media screen and (max-width: 768px) {
   body {
