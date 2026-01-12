@@ -170,6 +170,10 @@ iframe {
   list-style: url("../Other/checkbox-unchecked-svgrepo-com.svg");
 }
 
+h2.about-blue-title {
+  color: #3333ff;
+}
+
 /* Can view on phone */
 @media screen and (max-width: 768px) {
   body {
