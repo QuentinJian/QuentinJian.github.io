@@ -14,6 +14,46 @@
         <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/languages/python.min.js"></script>
 
         <script>hljs.highlightAll();</script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+
+        <!-- Add comment -->
+        <script type="text/javascript">
+          function loadComments(data) {
+            for (var i=0; i<data.length; i++) {
+              var cuser = data[i].user.login;
+              var cuserlink = data[i].user.html_url;
+              var clink = data[i].html_url;
+              var cbody = data[i].body_html;
+              var cavatarlink = data[i].user.avatar_url;      
+              var cdate = new Date(data[i].created_at);
+              $("#comments").append(
+                "<div class='comment'>" + 
+                    "<div class='commentheader'>" + 
+                      "<div class='commentgravatar'>" + 
+                        '<img src="' + cavatarlink + '" alt="" width="30" height="30">' + 
+                      "</div>" + 
+                      "<a class='commentuser' href=\""+ cuserlink + "\">" + 
+                        cuser + 
+                      "</a>" + 
+                      "<a class='commentdate' href=\"" + clink + "\">" + 
+                        cdate.toLocaleDateString("en") +  
+                      "</a>" +
+                    "</div>" + 
+                    "<div class='comment-content'>" + 
+                      cbody + 
+                    "</div>" + 
+                  "</div>"
+              );
+            }
+          }
+          $.ajax("https://api.github.com/repos/QeentinJian/QuentinJian.github.io/issues/23/comments", {
+            headers: {Accept: "application/vnd.github.v3.html+json"},
+            dataType: "json",
+            success: function(msg){
+              loadComments(msg);
+          }
+          });
+        </script>
   </head>
 
   <body>
@@ -97,7 +137,63 @@ while (t &lt; 100):
               因此直觀上精準度也隨著提高，而背後大概的原理來自於利用已知的數值對函式進行模擬泰勒展開後取其中前幾項進行逼近，基本的Euler Method 屬於取地
               一項，有點像只看起點的斜率，而RK4則是進行四次取樣因此可以更接近的重現原本函數的曲線。
             </p>
+            <p>
+              前面的程式利用RK4重寫後便成為這樣
+            </p>
+            <pre>
+              <code>
+def evaluate(initial: State, t: float, dt: float, d: Derivative) -> Derivative:
+    state = State()
+    state.x = initial.x + d.dx * dt
+    state.v = initial.v + d.dv * dt
+    
+    
+    output = Derivative()
+    output.dx = state.v
+    
+    F = -K*(state.x-spring.L0)*spring.axis.norm()
+    
+    output.dv = F/m
+    
+    return output
+
+def RK4(state: State, t: float, dt: float) -> State:
+    k1 = evaluate(state, t, 0, Derivative())
+    k2 = evaluate(state, t + dt/2, dt/2, k1)
+    k3 = evaluate(state, t + dt/2, dt/2, k2)
+    k4 = evaluate(state, t + dt, dt, k3)
+    
+    state.x += (dt/6.0) * (k1.dx + 2*k2.dx + 2*k3.dx + k4.dx)
+    state.v += (dt/6.0) * (k1.dv + 2*k2.dv + 2*k3.dv + k4.dv)
+    
+    return state
+
+while t &lt; t_max:
+    rate(1000)
+    
+    state = RK4(state, t, dt)
+
+    square.pos.x = state.x
+    
+    spring.axis= square.pos-spring.pos
+
+    t += dt
+              </code>
+            </pre>
+            <p>
+              換成這個寫法後，模擬出來
+            </p>
         </article>
+        <div class="comments" id="comments">
+          <h1>Comments</h1>
+          <div class="comment">
+            <div class="commentor">Quentin Jian - </div>
+            <div class="comment-content">
+              This is a comment :>
+            </div>
+          </div>
+        </div>
+        {% include disqus.html %}
       </main>
     </div>
     <footer>
