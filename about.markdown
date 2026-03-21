@@ -4,15 +4,19 @@ title: About
 permalink: /about/
 ---
 
-This is the base Jekyll theme. You can find out more info about customizing your Jekyll theme, as well as basic Jekyll usage documentation at [jekyllrb.com](https://jekyllrb.com/)
+Hi I'm Quentin Jian. I'm currently a university student currently study Engineering(Not Computer Science). I write program mostly for my amusement.
 
-You can find the source code for Minima at GitHub:
-[jekyll][jekyll-organization] /
-[minima](https://github.com/jekyll/minima)
+Here are some skills I have
 
-You can find the source code for Jekyll at GitHub:
-[jekyll][jekyll-organization] /
-[jekyll](https://github.com/jekyll/jekyll)
+`C` \
+`Java` \
+`Common Lisp`
+
+And I'm currently learning Operating System And Web Development.
+
+You can contact me by: \
+Email: [qjian18@proton.me](mailto:qjian18@proton.me) 
+<!-- [jekyll](https://github.com/jekyll/jekyll) -->
 
 
-[jekyll-organization]: https://github.com/jekyll
+<!-- [jekyll-organization]: https://github.com/jekyll -->

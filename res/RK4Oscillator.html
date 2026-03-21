@@ -1,0 +1,303 @@
+<div id="glowscript" class="glowscript">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<link type="text/css" href="https://www.glowscript.org/css/redmond/2.1/jquery-ui.custom.css" rel="stylesheet" />
+<link type="text/css" href="https://www.glowscript.org/css/ide.css" rel="stylesheet" />
+<script type="text/javascript" src="https://www.glowscript.org/lib/jquery/2.1/jquery.min.js"></script>
+<script type="text/javascript" src="https://www.glowscript.org/lib/jquery/2.1/jquery-ui.custom.min.js"></script>
+<script type="text/javascript" src="https://www.glowscript.org/package/glow.3.2.min.js"></script>
+<script type="text/javascript" src="https://www.glowscript.org/package/RSrun.3.2.min.js"></script>
+<script type="text/javascript"><!--//--><![CDATA[//><!--
+
+// START JAVASCRIPT
+;(function() {;
+var ρσ_modules = {};
+ρσ_modules.pythonize = {};
+
+(function(){
+    function strings() {
+        var string_funcs, exclude, name;
+        string_funcs = set("capitalize strip lstrip rstrip islower isupper isspace lower upper swapcase center count endswith startswith find rfind index rindex format join ljust rjust partition rpartition replace split rsplit splitlines zfill".split(" "));
+        if (!arguments.length) {
+            exclude = (function(){
+                var s = ρσ_set();
+                s.jsset.add("split");
+                s.jsset.add("replace");
+                return s;
+            })();
+        } else if (arguments[0]) {
+            exclude = Array.prototype.slice.call(arguments);
+        } else {
+            exclude = null;
+        }
+        if (exclude) {
+            string_funcs = string_funcs.difference(set(exclude));
+        }
+        var ρσ_Iter0 = string_funcs;
+        ρσ_Iter0 = ((typeof ρσ_Iter0[Symbol.iterator] === "function") ? (ρσ_Iter0 instanceof Map ? ρσ_Iter0.keys() : ρσ_Iter0) : Object.keys(ρσ_Iter0));
+        for (var ρσ_Index0 of ρσ_Iter0) {
+            name = ρσ_Index0;
+            (ρσ_expr_temp = String.prototype)[(typeof name === "number" && name < 0) ? ρσ_expr_temp.length + name : name] = (ρσ_expr_temp = ρσ_str.prototype)[(typeof name === "number" && name < 0) ? ρσ_expr_temp.length + name : name];
+        }
+    };
+    if (!strings.__module__) Object.defineProperties(strings, {
+        __module__ : {value: "pythonize"}
+    });
+
+    ρσ_modules.pythonize.strings = strings;
+})();
+async function __main__() {
+"use strict";
+    var display = canvas;
+    var scene = canvas();
+
+    function round(num, n=0) {return Number(num.toFixed(n))}
+
+    var version, print, arange, __name__, type, ρσ_ls, m, v0, K, i, t, dt, scene, floor, wall, square, spring, gdx, xt, gdE, Et, _GS_1, state;
+    version = ρσ_list_decorate([ "3.2", "glowscript" ]);
+    Array.prototype['+'] = function(r) {return this.concat(r)}
+    Array.prototype['*'] = function(r) {return __array_times_number(this, r)}
+    window.__GSlang = "vpython";
+    print = GSprint;
+    arange = range;
+    __name__ = "__main__";
+    type = pytype;
+    var strings = ρσ_modules.pythonize.strings;
+
+    strings();
+    "4";
+    function State() {;
+    }
+    State.prototype.__init__ = async function __init__() {
+        var self = this;
+        var x = ( 0 === arguments.length["-"](1) && arguments[arguments.length["-"](1)] !== null && typeof arguments[arguments.length["-"](1)] === "object" && arguments[arguments.length["-"](1)] [ρσ_kwargs_symbol] === true) ? undefined : arguments[0];
+        var v = (arguments[1] === undefined || ( 1 === arguments.length["-"](1) && arguments[arguments.length["-"](1)] !== null && typeof arguments[arguments.length["-"](1)] === "object" && arguments[arguments.length["-"](1)] [ρσ_kwargs_symbol] === true)) ? __init__.__defaults__.v : arguments[1];
+        var ρσ_kwargs_obj = arguments[arguments.length["-"](1)];
+        if (ρσ_kwargs_obj === null || typeof ρσ_kwargs_obj !== "object" || ρσ_kwargs_obj [ρσ_kwargs_symbol] !== true) ρσ_kwargs_obj = {};
+        if (Object.prototype.hasOwnProperty.call(ρσ_kwargs_obj, "v")){
+            v = ρσ_kwargs_obj.v;
+        }
+        "6";
+        self.x = x;
+        "7";
+        self.v = v;
+    };
+    if (!State.prototype.__init__.__defaults__) Object.defineProperties(State.prototype.__init__, {
+        __defaults__ : {value: {v:0}},
+        __handles_kwarg_interpolation__ : {value: true},
+        __argnames__ : {value: ["x", "v"]},
+        __module__ : {value: null}
+    });
+    State.__argnames__ = State.prototype.__init__.__argnames__;
+    State.__handles_kwarg_interpolation__ = State.prototype.__init__.__handles_kwarg_interpolation__;
+    State.prototype.__repr__ = async function __repr__() {
+                return "<"["+"](__name__)["+"](".")["+"](this.constructor.name)["+"](" #")["+"](this.ρσ_object_id)["+"](">");
+    };
+    State.prototype.__str__ = async function __str__() {
+        return this.__repr__();
+    };
+    Object.defineProperty(State.prototype, "__bases__", {value: []});
+    
+
+    "9";
+    function Derivative() {;
+    }
+    Derivative.prototype.__init__ = async function __init__() {
+        var self = this;
+        var dx = (arguments[0] === undefined || ( 0 === arguments.length["-"](1) && arguments[arguments.length["-"](1)] !== null && typeof arguments[arguments.length["-"](1)] === "object" && arguments[arguments.length["-"](1)] [ρσ_kwargs_symbol] === true)) ? __init__.__defaults__.dx : arguments[0];
+        var dv = (arguments[1] === undefined || ( 1 === arguments.length["-"](1) && arguments[arguments.length["-"](1)] !== null && typeof arguments[arguments.length["-"](1)] === "object" && arguments[arguments.length["-"](1)] [ρσ_kwargs_symbol] === true)) ? __init__.__defaults__.dv : arguments[1];
+        var ρσ_kwargs_obj = arguments[arguments.length["-"](1)];
+        if (ρσ_kwargs_obj === null || typeof ρσ_kwargs_obj !== "object" || ρσ_kwargs_obj [ρσ_kwargs_symbol] !== true) ρσ_kwargs_obj = {};
+        if (Object.prototype.hasOwnProperty.call(ρσ_kwargs_obj, "dx")){
+            dx = ρσ_kwargs_obj.dx;
+        }
+        if (Object.prototype.hasOwnProperty.call(ρσ_kwargs_obj, "dv")){
+            dv = ρσ_kwargs_obj.dv;
+        }
+        "11";
+        self.dx = dx;
+        "12";
+        self.dv = dv;
+    };
+    if (!Derivative.prototype.__init__.__defaults__) Object.defineProperties(Derivative.prototype.__init__, {
+        __defaults__ : {value: {dx:0, dv:0}},
+        __handles_kwarg_interpolation__ : {value: true},
+        __argnames__ : {value: ["dx", "dv"]},
+        __module__ : {value: null}
+    });
+    Derivative.__argnames__ = Derivative.prototype.__init__.__argnames__;
+    Derivative.__handles_kwarg_interpolation__ = Derivative.prototype.__init__.__handles_kwarg_interpolation__;
+    Derivative.prototype.__repr__ = async function __repr__() {
+                return "<"["+"](__name__)["+"](".")["+"](this.constructor.name)["+"](" #")["+"](this.ρσ_object_id)["+"](">");
+    };
+    Derivative.prototype.__str__ = async function __str__() {
+        return this.__repr__();
+    };
+    Object.defineProperty(Derivative.prototype, "__bases__", {value: []});
+    
+
+    "15";
+    m = 1;
+    "16";
+    v0 = 10;
+    "18";
+    K = 15;
+    "19";
+    i = 0;
+    "20";
+    t = 0;
+    "21";
+    dt = .01;
+    "23";
+    scene = ρσ_interpolate_kwargs.call(this, canvas, [ρσ_desugar_kwargs({title: "circle", width: 800, height: 600, background: vec(.5, .5, .5)})]);
+    "24";
+    floor = ρσ_interpolate_kwargs.call(this, box, [ρσ_desugar_kwargs({size: vector(5, .01, 2), texture: textures.metal})]);
+    "26";
+    wall = ρσ_interpolate_kwargs.call(this, box, [ρσ_desugar_kwargs({size: vector(.01, 1, 2), texture: textures.metal})]);
+    "27";
+    wall.pos = vec(1["-u"]()["*"](floor.size.x)["/"](2)["-"](1["*"](wall.size.x)["/"](2)), wall.size.y["/"](2)["+"](floor.size.y["/"](2)), 0);
+    "29";
+    square = ρσ_interpolate_kwargs.call(this, box, [ρσ_desugar_kwargs({size: vector(.5, .5, .5), texture: textures.wood, v: vec(v0, 0, 0), a: vec(0, 0, 0)})]);
+    "30";
+    square.pos = vec(0, square.size.y["/"](2)["+"](floor.size.y["/"](2)), 0);
+    "32";
+    spring = ρσ_interpolate_kwargs.call(this, helix, [ρσ_desugar_kwargs({radius: .1, coils: 15, thickness: .01})]);
+    "33";
+    spring.pos = vec(wall.pos.x["+"](.01["/"](2)), square.pos.y, 0);
+    "34";
+    spring.axis = square.pos["-"](1["*"](spring.pos));
+    "35";
+    spring.L0 = spring.length;
+    "37";
+    gdx = ρσ_interpolate_kwargs.call(this, graph, [ρσ_desugar_kwargs({title: "x-t plot", width: 400, height: 200, x: 0, y: 400, ytitle: "x(m)", xmax: 100})]);
+    "38";
+    xt = ρσ_interpolate_kwargs.call(this, gcurve, [ρσ_desugar_kwargs({graph: gdx, color: color.green})]);
+    "43";
+    gdE = ρσ_interpolate_kwargs.call(this, graph, [ρσ_desugar_kwargs({title: "Total Enery Of Square", width: 400, height: 200, x: 0, y: 400, ytitle: "E(J)", xtitle: "t", xmax: 100})]);
+    "44";
+    Et = ρσ_interpolate_kwargs.call(this, gcurve, [ρσ_desugar_kwargs({graph: gdE, color: color.black})]);
+    "52";
+    async function evaluate(initial, t, dt, d) {
+        var ρσ_ls, _GS_1, state, output, displacement, F;
+        "53";
+        _GS_1 = new State;
+        (await _GS_1.__init__());
+        state = _GS_1;
+        "54";
+        state.x = initial.x["+"](d.dx["*"](dt));
+        "55";
+        state.v = initial.v["+"](d.dv["*"](dt));
+        "58";
+        _GS_1 = new Derivative;
+        (await _GS_1.__init__());
+        output = _GS_1;
+        "59";
+        output.dx = state.v;
+        "61";
+        displacement = state.x["-"](1["*"](wall.pos.x))["-"](1["*"](spring.L0));
+        "63";
+        F = 1["-u"]()["*"](K)["*"](displacement)["-"](1["*"](.1)["*"](state.v));
+        "65";
+        output.dv = F["/"](m);
+        "67";
+        return output;
+    };
+    if (!evaluate.__argnames__) Object.defineProperties(evaluate, {
+        __argnames__ : {value: ["initial", "t", "dt", "d"]},
+        __module__ : {value: null}
+    });
+
+    "69";
+    async function RK4(state, t, dt) {
+        var ρσ_ls, _GS_1, k1, k2, k3, k4;
+        "70";
+        _GS_1 = new Derivative;
+        (await _GS_1.__init__());
+        k1 = (await evaluate(state, t, 0, _GS_1));
+        "71";
+        k2 = (await evaluate(state, t["+"](dt["/"](2)), dt["/"](2), k1));
+        "72";
+        k3 = (await evaluate(state, t["+"](dt["/"](2)), dt["/"](2), k2));
+        "73";
+        k4 = (await evaluate(state, t["+"](dt), dt, k3));
+        "75";
+        state.x=state.x["+"](dt["/"](6)["*"](k1.dx["+"](2["*"](k2.dx))["+"](2["*"](k3.dx))["+"](k4.dx)));
+        "76";
+        state.v=state.v["+"](dt["/"](6)["*"](k1.dv["+"](2["*"](k2.dv))["+"](2["*"](k3.dv))["+"](k4.dv)));
+        "78";
+        return state;
+    };
+    if (!RK4.__argnames__) Object.defineProperties(RK4, {
+        __argnames__ : {value: ["state", "t", "dt"]},
+        __module__ : {value: null}
+    });
+
+    "81";
+    async function update_arrow(thing, n) {
+        "82";
+        a_ar.axis = thing.a;
+        "83";
+        a_ar.pos = thing.pos;
+        "84";
+        a_la.pos = thing.pos["+"](thing.a["/"](n));
+        "85";
+        a_la.text = "A"["+"](" ")["+"](str(thing.a));
+        "86";
+        v_ar.axis = thing.v;
+        "87";
+        v_ar.pos = thing.pos;
+        "88";
+        v_la.pos = thing.pos["+"](thing.v["/"](n));
+        "89";
+        v_la.text = "V"["+"](" ")["+"](str(thing.v));
+    };
+    if (!update_arrow.__argnames__) Object.defineProperties(update_arrow, {
+        __argnames__ : {value: ["thing", "n"]},
+        __module__ : {value: null}
+    });
+
+    "91";
+    async function plot_graph(thing) {
+        var ρσ_ls, displacement;
+        "92";
+        ρσ_interpolate_kwargs.call(xt, xt.plot, [ρσ_desugar_kwargs({pos: [t, thing.pos.x]})]);
+        "93";
+        displacement = spring.length["-"](1["*"](spring.L0));
+        "94";
+        ρσ_interpolate_kwargs.call(Et, Et.plot, [ρσ_desugar_kwargs({pos: [t, .5["*"](thing.v.x)["*"](thing.v.x)["+"](.5["*"](K)["*"](Math.pow(displacement, 2)))]})]);
+    };
+    if (!plot_graph.__argnames__) Object.defineProperties(plot_graph, {
+        __argnames__ : {value: ["thing"]},
+        __module__ : {value: null}
+    });
+
+    "98";
+    _GS_1 = new State;
+    (await _GS_1.__init__(square.pos.x, square.v.x));
+    state = _GS_1;
+    "100";
+    while (t["<"](100)) {
+        "101";
+        (await rate(1e3));
+        "102";
+        state = (await RK4(state, t, dt));
+        "106";
+        square.pos.x = state.x;
+        "107";
+        square.v.x = state.v;
+        "110";
+        spring.axis = square.pos["-"](1["*"](spring.pos));
+        "112";
+        (await plot_graph(square));
+        "115";
+        t=t["+"](dt);
+    }
+};
+if (!__main__.__module__) Object.defineProperties(__main__, {
+    __module__ : {value: null}
+});
+
+;$(function(){ window.__context = { glowscript_container: $("#glowscript").removeAttr("id") }; __main__() })})()
+// END JAVASCRIPT
+
+//--><!]]></script>
+</div>
