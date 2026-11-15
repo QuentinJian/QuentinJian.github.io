@@ -4,18 +4,18 @@ title: About
 permalink: /about/
 ---
 
-Hi I'm Quentin Jian. I'm currently a university student currently study Engineering(Not Computer Science). I write program mostly for my amusement.
+Hi I'm Quentin Jian. I'm currently a university student currently study Computer Science. I write program mostly for my amusement.
 
 Here are some skills I have
 
 `C` \
-`Java` \
+`Go` \
 `Common Lisp`
 
-And I'm currently learning Operating System And Web Development.
+And I'm currently studying System Design, Distributed System and robotics.
 
 You can contact me by: \
-Email: [qjian18@proton.me](mailto:qjian18@proton.me) 
+Email: [qjian18@proton.me](mailto:qjian18@proton.me)
 <!-- [jekyll](https://github.com/jekyll/jekyll) -->
 
 
